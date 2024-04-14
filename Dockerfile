@@ -1,8 +1,6 @@
 # Use the official Nginx image as the base image
 FROM nginx:alpine as runtime
 
-# install openssh
-RUN apk add --no-cache openssh
 # install ssl
 RUN apk add --no-cache openssl
 # run ssl
@@ -16,4 +14,5 @@ EXPOSE 80
 EXPOSE 443
 
 # Command to start Nginx when the container runs
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
